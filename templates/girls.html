@@ -1,0 +1,1323 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Girls Space 🎀</title>
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='girls.css') }}">
+
+<style>
+
+    /* ================================
+       RESOURCE CARDS
+    ================================= */
+
+    #lessonContent {
+        margin-top: 30px;
+    }
+
+    .resource-card {
+        display: block;
+        text-decoration: none !important;
+        color: inherit !important;
+
+        background: rgba(255,255,255,0.95);
+
+        border-radius: 24px;
+
+        padding: 24px;
+
+        margin: 18px 0;
+
+        border: 2px solid rgba(255,150,190,0.25);
+
+        box-shadow:
+            0 8px 25px rgba(200,100,150,0.12);
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .resource-card:hover {
+        transform: translateY(-6px);
+
+        box-shadow:
+            0 15px 35px rgba(200,100,150,0.20);
+
+        border-color: #f28bb3;
+    }
+
+    .resource-icon {
+        font-size: 42px;
+        margin-bottom: 8px;
+    }
+
+    .resource-card h3 {
+        margin: 5px 0;
+
+        font-size: 22px;
+
+        color: #d94f87;
+    }
+
+    .resource-card p {
+        margin: 8px 0 18px;
+
+        color: #666;
+
+        line-height: 1.6;
+    }
+
+    .resource-button {
+        display: inline-block;
+
+        padding: 10px 18px;
+
+        border-radius: 20px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f78fb3,
+                #d96c9a
+            );
+
+        color: white !important;
+
+        font-weight: bold;
+
+        text-decoration: none !important;
+    }
+
+    .back-button {
+        border: none;
+
+        padding: 10px 18px;
+
+        border-radius: 18px;
+
+        cursor: pointer;
+
+        background: #f6d4e1;
+
+        color: #b83f70;
+
+        font-weight: bold;
+
+        margin-bottom: 18px;
+    }
+
+    .back-button:hover {
+        background: #efbfd2;
+    }
+
+</style>
+
+</head><body class="girls-page"><header><div class="logo girls-logo">
+    StudyVibe 🎀
+</div>
+
+<a href="/" class="back">
+    ← Home
+</a>
+
+</header><main class="space-main"><div class="page-icon">
+    🎀
+</div>
+
+
+<h1>
+    Girls Space
+</h1>
+
+
+<p>
+    Welcome to your cute study world ✨
+</p>
+
+
+
+<!-- =========================================
+     MAIN SECTIONS
+========================================== -->
+
+<div class="section-grid">
+
+
+    <div class="study-section"
+         onclick="showStudySpace()">
+
+        📚
+
+        <h2>
+            Study Space
+        </h2>
+
+        <p>
+            Discover useful study resources.
+        </p>
+
+    </div>
+
+
+
+    <div class="study-section"
+         onclick="showNotes()">
+
+        📝
+
+        <h2>
+            Notes
+        </h2>
+
+        <p>
+            Write and organize your notes.
+        </p>
+
+    </div>
+
+
+
+    <div class="study-section"
+         onclick="showStudyPartner()">
+
+        🤝
+
+        <h2>
+            Study Partner
+        </h2>
+
+        <p>
+            Find someone to study with.
+        </p>
+
+    </div>
+
+
+
+    <div class="study-section"
+         onclick="showTips()">
+
+        💡
+
+        <h2>
+            Student Tips
+        </h2>
+
+        <p>
+            Share useful study tips.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     STUDY SPACE
+========================================== -->
+
+<div id="studySpaceBox"
+     style="display:none;">
+
+    <h2>
+        📚 Study Space
+    </h2>
+
+    <p>
+        Choisis une matière pour découvrir
+        des ressources utiles ✨
+    </p>
+
+
+    <div class="section-grid">
+
+
+        <div class="study-section"
+             onclick="openSubject('programming')">
+
+            💻
+
+            <h2>
+                Programming
+            </h2>
+
+            <p>
+                Algorithmique & programmation
+            </p>
+
+        </div>
+
+
+
+        <div class="study-section"
+             onclick="openSubject('math')">
+
+            📐
+
+            <h2>
+                Mathématiques
+            </h2>
+
+            <p>
+                Cours, outils & exercices
+            </p>
+
+        </div>
+
+
+
+        <div class="study-section"
+             onclick="openSubject('physics')">
+
+            ⚡
+
+            <h2>
+                Physique
+            </h2>
+
+            <p>
+                Cours & simulations
+            </p>
+
+        </div>
+
+
+
+        <div class="study-section"
+             onclick="openSubject('sti')">
+
+            ⚙️
+
+            <h2>
+                STI
+            </h2>
+
+            <p>
+                Technologie & informatique
+            </p>
+
+        </div>
+
+
+
+        <div class="study-section"
+             onclick="openSubject('francais')">
+
+            🇫🇷
+
+            <h2>
+                Français
+            </h2>
+
+            <p>
+                Langue & compréhension
+            </p>
+
+        </div>
+
+
+
+        <div class="study-section"
+             onclick="openSubject('anglais')">
+
+            🇬🇧
+
+            <h2>
+                English
+            </h2>
+
+            <p>
+                Language & vocabulary
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="lessonContent"></div>
+
+</div>
+
+
+
+<!-- =========================================
+     NOTES
+========================================== -->
+
+<div id="notesBox"
+     style="display:none;">
+
+    <h2>
+        📝 My Notes
+    </h2>
+
+    <p>
+        Write your notes and ideas here ✨
+    </p>
+
+
+    <div class="partner-create">
+
+        <h3>
+            ✏️ New Note
+        </h3>
+
+
+        <textarea
+            id="noteText"
+            placeholder="Write your note here..."
+            rows="7"></textarea>
+
+
+        <br><br>
+
+
+        <button onclick="saveNote()">
+            💾 Save Note
+        </button>
+
+    </div>
+
+
+    <div class="partner-posts">
+
+        <h3>
+            📚 Saved Notes
+        </h3>
+
+
+        <div id="savedNotes"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     STUDY PARTNER
+========================================== -->
+
+<div id="studyPartnerBox"
+     style="display:none;">
+
+    <h2>
+        🤝 Study Partner
+    </h2>
+
+
+    <p>
+        Find someone who studies the same subjects.
+    </p>
+
+
+    <div class="partner-create">
+
+        <h3>
+            ➕ Create your post
+        </h3>
+
+
+        <form
+            action="{{ url_for('create_post') }}"
+            method="POST">
+
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required>
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                required>
+
+
+            <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                required>
+
+
+            <textarea
+                name="message"
+                placeholder="What are you looking for?"
+                required></textarea>
+
+
+            <button type="submit">
+                Publish Post 🚀
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <div class="partner-posts">
+
+        <h3>
+            👥 Students looking for partners
+        </h3>
+
+
+        {% if posts %}
+
+            {% for post in posts %}
+
+            <div class="partner-post">
+
+                <h3>
+                    👤 {{ post["name"] }}
+                </h3>
+
+                <span>
+                    📚 {{ post["subject"] }}
+                </span>
+
+                <p>
+                    {{ post["message"] }}
+                </p>
+
+
+                <form
+                    action="{{ url_for(
+                        'send_request',
+                        post_id=post['id']
+                    ) }}"
+                    method="POST">
+
+
+                    <input
+                        type="text"
+                        name="sender_name"
+                        placeholder="Your name"
+                        required>
+
+
+                    <input
+                        type="email"
+                        name="sender_email"
+                        placeholder="Your email"
+                        required>
+
+
+                    <button type="submit">
+                        📩 Send Request
+                    </button>
+
+                </form>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>
+                🌱 No posts yet. Be the first!
+            </p>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================
+     STUDENT TIPS
+========================================== -->
+
+<div id="tipsBox"
+     style="display:none;">
+
+    <h2>
+        💡 Student Tips
+    </h2>
+
+    <p>
+        Useful tips to improve your study routine.
+    </p>
+
+
+    <div class="tips-list">
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+                ⏰
+            </div>
+
+            <div>
+
+                <h3>
+                    Organise ton temps
+                </h3>
+
+                <p>
+                    اعملي planning صغير وحددي
+                    شنوّة باش تقراي كل نهار.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+                🧠
+            </div>
+
+            <div>
+
+                <h3>
+                    Comprends avant de mémoriser
+                </h3>
+
+                <p>
+                    حاولي تفهمي الدرس قبل الحفظ
+                    وفسريه بكلامك.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+                ✏️
+            </div>
+
+            <div>
+
+                <h3>
+                    Fais des exercices
+                </h3>
+
+                <p>
+                    التطبيق بالتمارين يساعدك
+                    تثبتي المعلومات.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+                🔁
+            </div>
+
+            <div>
+
+                <h3>
+                    Révise régulièrement
+                </h3>
+
+                <p>
+                    المراجعة المتكررة تعاونك
+                    ما تنسايش الدروس.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tip-card">
+
+            <div class="tip-icon">
+                ☕
+            </div>
+
+            <div>
+
+                <h3>
+                    Fais des pauses
+                </h3>
+
+                <p>
+                    خذي pauses قصيرة بين
+                    sessions متاع القراية.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</main><script>
+
+
+// =========================================
+// HIDE ALL
+// =========================================
+
+function hideAll() {
+
+    document.getElementById("studySpaceBox")
+        .style.display = "none";
+
+    document.getElementById("notesBox")
+        .style.display = "none";
+
+    document.getElementById("studyPartnerBox")
+        .style.display = "none";
+
+    document.getElementById("tipsBox")
+        .style.display = "none";
+
+}
+
+
+
+// =========================================
+// STUDY SPACE
+// =========================================
+
+function showStudySpace() {
+
+    hideAll();
+
+    document.getElementById("studySpaceBox")
+        .style.display = "block";
+
+    document.getElementById("lessonContent")
+        .innerHTML = "";
+
+    document.getElementById("studySpaceBox")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+
+// =========================================
+// STUDY DATA
+// =========================================
+
+const studyData = {
+
+
+    programming: {
+
+        title: "💻 Programming",
+
+        sites: [
+
+            {
+                name: "W3Schools",
+
+                icon: "🌐",
+
+                description:
+                    "HTML, CSS, JavaScript, Python, SQL et beaucoup plus.",
+
+                url:
+                    "https://www.w3schools.com/"
+            },
+
+
+            {
+                name: "MDN Web Docs",
+
+                icon: "🦊",
+
+                description:
+                    "Documentation et ressources pour le développement Web.",
+
+                url:
+                    "https://developer.mozilla.org/"
+            },
+
+
+            {
+                name: "GeeksforGeeks",
+
+                icon: "💡",
+
+                description:
+                    "Programming, algorithms et exercices pratiques.",
+
+                url:
+                    "https://www.geeksforgeeks.org/"
+            }
+
+        ]
+
+    },
+
+
+
+    math: {
+
+        title: "📐 Mathématiques",
+
+        sites: [
+
+            {
+                name: "Khan Academy",
+
+                icon: "🎓",
+
+                description:
+                    "Cours et exercices de mathématiques.",
+
+                url:
+                    "https://www.khanacademy.org/math"
+            },
+
+
+            {
+                name: "GeoGebra",
+
+                icon: "📊",
+
+                description:
+                    "Fonctions, géométrie et calculs interactifs.",
+
+                url:
+                    "https://www.geogebra.org/"
+            },
+
+
+            {
+                name: "Wolfram MathWorld",
+
+                icon: "🔢",
+
+                description:
+                    "Références et notions mathématiques.",
+
+                url:
+                    "https://mathworld.wolfram.com/"
+            }
+
+        ]
+
+    },
+
+
+
+    physics: {
+
+        title: "⚡ Physique",
+
+        sites: [
+
+            {
+                name: "PhET",
+
+                icon: "🧪",
+
+                description:
+                    "Simulations interactives de physique.",
+
+                url:
+                    "https://phet.colorado.edu/"
+            },
+
+
+            {
+                name: "Khan Academy",
+
+                icon: "🎓",
+
+                description:
+                    "Cours et explications de physique.",
+
+                url:
+                    "https://www.khanacademy.org/science/physics"
+            },
+
+
+            {
+                name: "HyperPhysics",
+
+                icon: "🌌",
+
+                description:
+                    "Concepts et ressources de physique.",
+
+                url:
+                    "http://hyperphysics.phy-astr.gsu.edu/"
+            }
+
+        ]
+
+    },
+
+
+
+    sti: {
+
+        title: "⚙️ STI",
+
+        sites: [
+
+            {
+                name: "W3Schools",
+
+                icon: "🌐",
+
+                description:
+                    "Technologies Web et programmation.",
+
+                url:
+                    "https://www.w3schools.com/"
+            },
+
+
+            {
+                name: "MDN Web Docs",
+
+                icon: "🦊",
+
+                description:
+                    "Technologies et développement Web.",
+
+                url:
+                    "https://developer.mozilla.org/"
+            },
+
+
+            {
+                name: "GeeksforGeeks",
+
+                icon: "💡",
+
+                description:
+                    "Informatique et technologies.",
+
+                url:
+                    "https://www.geeksforgeeks.org/"
+            }
+
+        ]
+
+    },
+
+
+
+    francais: {
+
+        title: "🇫🇷 Français",
+
+        sites: [
+
+            {
+                name: "TV5MONDE",
+
+                icon: "📺",
+
+                description:
+                    "Apprendre et pratiquer le français.",
+
+                url:
+                    "https://apprendre.tv5monde.com/"
+            },
+
+
+            {
+                name: "Larousse",
+
+                icon: "📖",
+
+                description:
+                    "Dictionnaire, vocabulaire et conjugaison.",
+
+                url:
+                    "https://www.larousse.fr/"
+            },
+
+
+            {
+                name: "RFI Savoirs",
+
+                icon: "🎧",
+
+                description:
+                    "Ressources pour apprendre le français.",
+
+                url:
+                    "https://savoirs.rfi.fr/"
+            }
+
+        ]
+
+    },
+
+
+
+    anglais: {
+
+        title: "🇬🇧 English",
+
+        sites: [
+
+            {
+                name: "British Council",
+
+                icon: "🎓",
+
+                description:
+                    "Grammar, vocabulary, listening et exercices.",
+
+                url:
+                    "https://learnenglish.britishcouncil.org/"
+            },
+
+
+            {
+                name: "Cambridge Dictionary",
+
+                icon: "📚",
+
+                description:
+                    "Dictionary, grammar et pronunciation.",
+
+                url:
+                    "https://dictionary.cambridge.org/"
+            },
+
+
+            {
+                name: "BBC Learning English",
+
+                icon: "🎧",
+
+                description:
+                    "English lessons, vocabulary et listening.",
+
+                url:
+                    "https://www.bbc.co.uk/learningenglish/"
+            }
+
+        ]
+
+    }
+
+};
+
+
+
+// =========================================
+// OPEN SUBJECT
+// =========================================
+
+function openSubject(subject) {
+
+    const data = studyData[subject];
+
+    let html = `
+
+        <div class="lesson">
+
+            <button
+                class="back-button"
+                onclick="showStudySpace()">
+
+                ← Retour aux matières
+
+            </button>
+
+
+            <h2>
+                ${data.title}
+            </h2>
+
+
+            <p>
+                🌐 Choisis une ressource pour commencer
+            </p>
+
+        </div>
+
+    `;
+
+
+    data.sites.forEach(function(site) {
+
+        html += `
+
+            <a
+                href="${site.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="resource-card">
+
+                <div class="resource-icon">
+                    ${site.icon}
+                </div>
+
+
+                <h3>
+                    ${site.name}
+                </h3>
+
+
+                <p>
+                    ${site.description}
+                </p>
+
+
+                <span class="resource-button">
+                    Visit Website →
+                </span>
+
+            </a>
+
+        `;
+
+    });
+
+
+    document.getElementById("lessonContent")
+        .innerHTML = html;
+
+
+    document.getElementById("lessonContent")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+
+// =========================================
+// NOTES
+// =========================================
+
+function showNotes() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("notesBox");
+
+    box.style.display = "block";
+
+    loadNotes();
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+function saveNote() {
+
+    const text =
+        document.getElementById("noteText")
+        .value
+        .trim();
+
+
+    if (text === "") {
+
+        alert(
+            "Please write something first ✨"
+        );
+
+        return;
+
+    }
+
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("girlsNotes")
+            || "[]"
+        );
+
+
+    notes.push(text);
+
+
+    localStorage.setItem(
+        "girlsNotes",
+        JSON.stringify(notes)
+    );
+
+
+    document.getElementById("noteText")
+        .value = "";
+
+
+    loadNotes();
+
+}
+
+
+
+function loadNotes() {
+
+    const container =
+        document.getElementById("savedNotes");
+
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("girlsNotes")
+            || "[]"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (notes.length === 0) {
+
+        container.innerHTML =
+            "<p>🌱 No notes yet.</p>";
+
+        return;
+
+    }
+
+
+    notes.forEach(function(note, index) {
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "tip-card";
+
+
+        div.innerHTML = `
+
+            <div class="tip-icon">
+                📝
+            </div>
+
+
+            <div>
+
+                <p>
+                    ${note}
+                </p>
+
+
+                <button
+                    onclick="deleteNote(${index})">
+
+                    🗑️ Delete
+
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+
+function deleteNote(index) {
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("girlsNotes")
+            || "[]"
+        );
+
+
+    notes.splice(index, 1);
+
+
+    localStorage.setItem(
+        "girlsNotes",
+        JSON.stringify(notes)
+    );
+
+
+    loadNotes();
+
+}
+
+
+
+// =========================================
+// STUDY PARTNER
+// =========================================
+
+function showStudyPartner() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("studyPartnerBox");
+
+    box.style.display = "block";
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+
+// =========================================
+// STUDENT TIPS
+// =========================================
+
+function showTips() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("tipsBox");
+
+    box.style.display = "block";
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+</script></body>
+</html>

@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Boys Space 💙</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='boys.css') }}">
+
+</head>
+
+
+<body class="boys-page">
+
+
+<header>
+
+    <div class="logo">
+        StudyVibe 💙
+    </div>
+
+    <a href="/" class="back">
+        ← Home
+    </a>
+
+</header>
+
+
+<main class="space-main">
+
+    <div class="page-icon">
+        💙
+    </div>
+
+    <h1>Boys Space</h1>
+
+    <p>
+        Learn • Practice • Improve 🚀
+    </p>
+
+
+    <!-- =================================================
+         MAIN SECTIONS
+    ================================================== -->
+
+    <div class="section-grid">
+
+        <div class="study-section"
+             onclick="showStudySpace()">
+
+            📚
+
+            <h2>Study Space</h2>
+
+            <p>
+                Courses, exercises and resources.
+            </p>
+
+        </div>
+
+
+        <div class="study-section"
+             onclick="showNotes()">
+
+            📝
+
+            <h2>Notes</h2>
+
+            <p>
+                Write and organize your notes.
+            </p>
+
+        </div>
+
+
+        <div class="study-section"
+             onclick="showStudyPartner()">
+
+            🤝
+
+            <h2>Study Partner</h2>
+
+            <p>
+                Find someone to study with.
+            </p>
+
+        </div>
+
+
+        <div class="study-section"
+             onclick="showTips()">
+
+            💡
+
+            <h2>Student Tips</h2>
+
+            <p>
+                Useful tips for studying.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STUDY SPACE
+    ================================================== -->
+
+    <div id="studySpaceBox"
+         style="display:none;">
+
+        <h2>📚 Study Space</h2>
+
+        <p>
+            Choose a subject to start learning 🚀
+        </p>
+
+
+        <div class="section-grid">
+
+
+            <div class="study-section"
+                 onclick="openSubject('programming')">
+
+                💻
+
+                <h2>Programming</h2>
+
+                <p>
+                    Algorithmique & programmation
+                </p>
+
+            </div>
+
+
+            <div class="study-section"
+                 onclick="openSubject('math')">
+
+                📐
+
+                <h2>Mathématiques</h2>
+
+                <p>
+                    Cours, outils & exercices
+                </p>
+
+            </div>
+
+
+            <div class="study-section"
+                 onclick="openSubject('physics')">
+
+                ⚡
+
+                <h2>Physique</h2>
+
+                <p>
+                    Cours & simulations
+                </p>
+
+            </div>
+
+
+            <div class="study-section"
+                 onclick="openSubject('sti')">
+
+                ⚙️
+
+                <h2>STI</h2>
+
+                <p>
+                    Technologie & informatique
+                </p>
+
+            </div>
+
+
+            <div class="study-section"
+                 onclick="openSubject('francais')">
+
+                🇫🇷
+
+                <h2>Français</h2>
+
+                <p>
+                    Langue & compréhension
+                </p>
+
+            </div>
+
+
+            <div class="study-section"
+                 onclick="openSubject('anglais')">
+
+                🇬🇧
+
+                <h2>English</h2>
+
+                <p>
+                    Language & vocabulary
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             LESSON AREA
+        ================================================== -->
+
+        <div id="lessonArea"
+             style="display:none;">
+
+            <button class="back-button"
+                    onclick="showStudySpace()">
+
+                ← Retour aux matières
+
+            </button>
+
+            <div id="lessonContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         NOTES
+    ================================================== -->
+
+    <div id="notesBox"
+         style="display:none;">
+
+        <h2>📝 My Notes</h2>
+
+        <p>
+            Write your notes and ideas here.
+        </p>
+
+
+        <div class="partner-create">
+
+            <h3>✏️ New Note</h3>
+
+            <textarea
+                id="noteText"
+                placeholder="Write your note here..."
+                rows="7"></textarea>
+
+
+            <br><br>
+
+
+            <button onclick="saveNote()">
+
+                💾 Save Note
+
+            </button>
+
+        </div>
+
+
+        <div class="partner-posts">
+
+            <h3>📚 Saved Notes</h3>
+
+            <div id="savedNotes"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STUDY PARTNER
+    ================================================== -->
+
+    <div id="studyPartnerBox"
+         style="display:none;">
+
+        <h2>🤝 Study Partner</h2>
+
+        <p>
+            Find someone who studies the same subjects.
+        </p>
+
+
+        <div class="partner-create">
+
+            <h3>➕ Create your post</h3>
+
+
+            <form
+                action="{{ url_for('create_post') }}"
+                method="POST">
+
+
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    required>
+
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Your email"
+                    required>
+
+
+                <input
+                    type="text"
+                    name="subject"
+                    placeholder="Subject"
+                    required>
+
+
+                <textarea
+                    name="message"
+                    placeholder="What are you looking for?"
+                    required></textarea>
+
+
+                <button type="submit">
+
+                    Publish Post 🚀
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="partner-posts">
+
+            <h3>
+                👥 Students looking for partners
+            </h3>
+
+
+            {% if posts %}
+
+                {% for post in posts %}
+
+                <div class="partner-post">
+
+                    <h3>
+                        👤 {{ post["name"] }}
+                    </h3>
+
+
+                    <span>
+                        📚 {{ post["subject"] }}
+                    </span>
+
+
+                    <p>
+                        {{ post["message"] }}
+                    </p>
+
+
+                    <form
+                        action="{{ url_for(
+                            'send_request',
+                            post_id=post['id']
+                        ) }}"
+                        method="POST">
+
+
+                        <input
+                            type="text"
+                            name="sender_name"
+                            placeholder="Your name"
+                            required>
+
+
+                        <input
+                            type="email"
+                            name="sender_email"
+                            placeholder="Your email"
+                            required>
+
+
+                        <button type="submit">
+
+                            📩 Send Request
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+                {% endfor %}
+
+            {% else %}
+
+                <p>
+                    🌱 No posts yet. Be the first!
+                </p>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STUDENT TIPS
+    ================================================== -->
+
+    <div id="tipsBox"
+         style="display:none;">
+
+        <h2>💡 Student Tips</h2>
+
+        <p>
+            Useful tips to improve your study routine.
+        </p>
+
+
+        <div class="tips-list">
+
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    ⏰
+                </div>
+
+                <div>
+
+                    <h3>
+                        Organize your time
+                    </h3>
+
+                    <p>
+                        Make a small planning before
+                        starting your study session.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    🧠
+                </div>
+
+                <div>
+
+                    <h3>
+                        Understand first
+                    </h3>
+
+                    <p>
+                        Try to understand the lesson
+                        before memorizing it.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    ✏️
+                </div>
+
+                <div>
+
+                    <h3>
+                        Practice
+                    </h3>
+
+                    <p>
+                        Exercises help you transform
+                        what you learned into real skills.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    🔁
+                </div>
+
+                <div>
+
+                    <h3>
+                        Revise regularly
+                    </h3>
+
+                    <p>
+                        Regular revision helps you
+                        remember what you learned.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="tip-card">
+
+                <div class="tip-icon">
+                    🎯
+                </div>
+
+                <div>
+
+                    <h3>
+                        Set a goal
+                    </h3>
+
+                    <p>
+                        Decide what you want to finish
+                        before starting.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+<script>
+
+/* =================================================
+   HIDE ALL
+================================================= */
+
+function hideAll() {
+
+    document.getElementById("studySpaceBox")
+        .style.display = "none";
+
+    document.getElementById("notesBox")
+        .style.display = "none";
+
+    document.getElementById("studyPartnerBox")
+        .style.display = "none";
+
+    document.getElementById("tipsBox")
+        .style.display = "none";
+
+}
+
+
+/* =================================================
+   STUDY SPACE
+================================================= */
+
+function showStudySpace() {
+
+    hideAll();
+
+    document.getElementById("studySpaceBox")
+        .style.display = "block";
+
+    document.getElementById("lessonArea")
+        .style.display = "none";
+
+    document.getElementById("lessonContent")
+        .innerHTML = "";
+
+    document.getElementById("studySpaceBox")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =================================================
+   STUDY DATA
+================================================= */
+
+const studyData = {
+
+
+    /* ================= PROGRAMMING ================= */
+
+    programming: {
+
+        title: "💻 Programming",
+
+        sites: [
+
+            {
+                name: "W3Schools",
+                icon: "🌐",
+                description:
+                    "HTML, CSS, JavaScript, Python, SQL...",
+                url:
+                    "https://www.w3schools.com/"
+            },
+
+            {
+                name: "freeCodeCamp",
+                icon: "🧑‍💻",
+                description:
+                    "Programming courses and practice.",
+                url:
+                    "https://www.freecodecamp.org/"
+            },
+
+            {
+                name: "GeeksforGeeks",
+                icon: "📚",
+                description:
+                    "Programming, algorithms & practice.",
+                url:
+                    "https://www.geeksforgeeks.org/"
+            }
+
+        ]
+
+    },
+
+
+    /* ================= MATH ================= */
+
+    math: {
+
+        title: "📐 Mathématiques",
+
+        sites: [
+
+            {
+                name: "Khan Academy",
+                icon: "🎓",
+                description:
+                    "Cours et exercices de mathématiques.",
+                url:
+                    "https://www.khanacademy.org/math"
+            },
+
+            {
+                name: "GeoGebra",
+                icon: "📊",
+                description:
+                    "Fonctions, géométrie et calculs interactifs.",
+                url:
+                    "https://www.geogebra.org/"
+            },
+
+            {
+                name: "WolframAlpha",
+                icon: "🧮",
+                description:
+                    "Calculs et ressources mathématiques.",
+                url:
+                    "https://www.wolframalpha.com/"
+            }
+
+        ]
+
+    },
+
+
+    /* ================= PHYSICS ================= */
+
+    physics: {
+
+        title: "⚡ Physique",
+
+        sites: [
+
+            {
+                name: "PhET Simulations",
+                icon: "🧪",
+                description:
+                    "Simulations interactives de physique.",
+                url:
+                    "https://phet.colorado.edu/"
+            },
+
+            {
+                name: "Khan Academy Physics",
+                icon: "🔬",
+                description:
+                    "Cours et explications de physique.",
+                url:
+                    "https://www.khanacademy.org/science/physics"
+            },
+
+            {
+                name: "The Physics Classroom",
+                icon: "📖",
+                description:
+                    "Cours et ressources de physique.",
+                url:
+                    "https://www.physicsclassroom.com/"
+            }
+
+        ]
+
+    },
+
+
+    /* ================= STI ================= */
+
+    sti: {
+
+        title: "⚙️ STI",
+
+        sites: [
+
+            {
+                name: "W3Schools",
+                icon: "💻",
+                description:
+                    "Technologies Web & programmation.",
+                url:
+                    "https://www.w3schools.com/"
+            },
+
+            {
+                name: "Cisco Networking Academy",
+                icon: "🌐",
+                description:
+                    "Réseaux, informatique et technologies.",
+                url:
+                    "https://www.netacad.com/"
+            },
+
+            {
+                name: "IBM SkillsBuild",
+                icon: "🧠",
+                description:
+                    "Compétences numériques et technologies.",
+                url:
+                    "https://skillsbuild.org/"
+            }
+
+        ]
+
+    },
+
+
+    /* ================= FRANÇAIS ================= */
+
+    francais: {
+
+        title: "🇫🇷 Français",
+
+        sites: [
+
+            {
+                name: "TV5MONDE",
+                icon: "📺",
+                description:
+                    "Apprendre et pratiquer le français.",
+                url:
+                    "https://apprendre.tv5monde.com/"
+            },
+
+            {
+                name: "Larousse",
+                icon: "📖",
+                description:
+                    "Dictionnaire, vocabulaire & conjugaison.",
+                url:
+                    "https://www.larousse.fr/"
+            },
+
+            {
+                name: "RFI Savoirs",
+                icon: "🎧",
+                description:
+                    "Ressources pour apprendre le français.",
+                url:
+                    "https://savoirs.rfi.fr/"
+            }
+
+        ]
+
+    },
+
+
+    /* ================= ENGLISH ================= */
+
+    anglais: {
+
+        title: "🇬🇧 English",
+
+        sites: [
+
+            {
+                name: "British Council",
+                icon: "🎓",
+                description:
+                    "Grammar, vocabulary, listening & more.",
+                url:
+                    "https://learnenglish.britishcouncil.org/"
+            },
+
+            {
+                name: "Cambridge Dictionary",
+                icon: "📚",
+                description:
+                    "Dictionary, grammar & pronunciation.",
+                url:
+                    "https://dictionary.cambridge.org/"
+            },
+
+            {
+                name: "BBC Learning English",
+                icon: "🎧",
+                description:
+                    "English lessons, vocabulary & listening.",
+                url:
+                    "https://www.bbc.co.uk/learningenglish/"
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* =================================================
+   OPEN SUBJECT
+================================================= */
+
+function openSubject(subject) {
+
+    const data = studyData[subject];
+
+    if (!data) {
+        return;
+    }
+
+
+    document.getElementById("lessonArea")
+        .style.display = "block";
+
+
+    let html = `
+
+        <div class="lesson">
+
+            <button class="back-button"
+                    onclick="showStudySpace()">
+
+                ← Retour aux matières
+
+            </button>
+
+
+            <h2>
+                ${data.title}
+            </h2>
+
+
+            <p>
+                🌐 Choose a website to start learning
+            </p>
+
+
+            <div class="resources-box">
+
+                <h3>
+                    🌐 Learning Websites
+                </h3>
+
+                <p>
+                    Explore these useful websites
+                    and improve your skills 🚀
+                </p>
+
+
+                <div class="resource-links">
+    `;
+
+
+    data.sites.forEach(function(site) {
+
+        html += `
+
+            <a class="resource-link"
+               href="${site.url}"
+               target="_blank"
+               rel="noopener noreferrer">
+
+                <span class="resource-icon">
+                    ${site.icon}
+                </span>
+
+                <span class="resource-info">
+
+                    <strong>
+                        ${site.name}
+                    </strong>
+
+                    <small>
+                        ${site.description}
+                    </small>
+
+                </span>
+
+                <span class="resource-arrow">
+                    ↗
+                </span>
+
+            </a>
+
+        `;
+
+    });
+
+
+    html += `
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.getElementById("lessonContent")
+        .innerHTML = html;
+
+
+    document.getElementById("lessonContent")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =================================================
+   NOTES
+================================================= */
+
+function showNotes() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("notesBox");
+
+    box.style.display = "block";
+
+    loadNotes();
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function saveNote() {
+
+    const textarea =
+        document.getElementById("noteText");
+
+    const text =
+        textarea.value.trim();
+
+
+    if (text === "") {
+
+        alert(
+            "Please write something first ✨"
+        );
+
+        return;
+    }
+
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("boysNotes")
+            || "[]"
+        );
+
+
+    notes.push(text);
+
+
+    localStorage.setItem(
+        "boysNotes",
+        JSON.stringify(notes)
+    );
+
+
+    textarea.value = "";
+
+    loadNotes();
+
+}
+
+
+function loadNotes() {
+
+    const container =
+        document.getElementById("savedNotes");
+
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("boysNotes")
+            || "[]"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (notes.length === 0) {
+
+        container.innerHTML =
+            "<p>🌱 No notes yet.</p>";
+
+        return;
+
+    }
+
+
+    notes.forEach(function(note, index) {
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "tip-card";
+
+
+        const icon =
+            document.createElement("div");
+
+        icon.className =
+            "tip-icon";
+
+        icon.textContent =
+            "📝";
+
+
+        const content =
+            document.createElement("div");
+
+
+        const p =
+            document.createElement("p");
+
+        p.textContent =
+            note;
+
+
+        const button =
+            document.createElement("button");
+
+        button.textContent =
+            "🗑️ Delete";
+
+        button.onclick =
+            function() {
+
+                deleteNote(index);
+
+            };
+
+
+        content.appendChild(p);
+
+        content.appendChild(button);
+
+        div.appendChild(icon);
+
+        div.appendChild(content);
+
+        container.appendChild(div);
+
+    });
+
+}
+
+
+function deleteNote(index) {
+
+    let notes =
+        JSON.parse(
+            localStorage.getItem("boysNotes")
+            || "[]"
+        );
+
+
+    notes.splice(index, 1);
+
+
+    localStorage.setItem(
+        "boysNotes",
+        JSON.stringify(notes)
+    );
+
+
+    loadNotes();
+
+}
+
+
+/* =================================================
+   STUDY PARTNER
+================================================= */
+
+function showStudyPartner() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("studyPartnerBox");
+
+    box.style.display = "block";
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =================================================
+   STUDENT TIPS
+================================================= */
+
+function showTips() {
+
+    hideAll();
+
+    const box =
+        document.getElementById("tipsBox");
+
+    box.style.display = "block";
+
+    box.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+</script>
+
+
+
+<!-- =================================================
+     BEAUTIFUL RESOURCE LINKS
+================================================= -->
+
+<style>
+
+.resources-box {
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    max-width: 800px;
+
+    border-radius: 24px;
+
+    background: rgba(255,255,255,0.07);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.18);
+
+}
+
+
+.resources-box h3 {
+
+    margin-bottom: 8px;
+
+}
+
+
+.resources-box > p {
+
+    opacity: 0.8;
+
+    margin-bottom: 20px;
+
+}
+
+
+.resource-links {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+
+.resource-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px 18px;
+
+    border-radius: 18px;
+
+    text-decoration: none !important;
+
+    color: inherit !important;
+
+    background: rgba(255,255,255,0.08);
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+
+}
+
+
+.resource-link:hover {
+
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,0.14);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.2);
+
+}
+
+
+.resource-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,0.1);
+
+    font-size: 25px;
+
+    flex-shrink: 0;
+
+}
+
+
+.resource-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+
+}
+
+
+.resource-info strong {
+
+    font-size: 17px;
+
+}
+
+
+.resource-info small {
+
+    opacity: 0.7;
+
+    font-size: 13px;
+
+}
+
+
+.resource-arrow {
+
+    font-size: 22px;
+
+    opacity: 0.7;
+
+}
+
+
+.back-button {
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    margin-bottom: 20px;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .resources-box {
+
+        padding: 18px;
+
+        margin: 20px 5px;
+
+    }
+
+
+    .resource-link {
+
+        padding: 13px;
+
+    }
+
+
+    .resource-icon {
+
+        width: 42px;
+
+        height: 42px;
+
+        font-size: 21px;
+
+    }
+
+
+    .resource-info strong {
+
+        font-size: 15px;
+
+    }
+
+
+    .resource-info small {
+
+        font-size: 12px;
+
+    }
+
+}
+
+</style>
+
+
+</body>
+
+</html>

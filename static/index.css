@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Pacifico&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: #3f3150;
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(circle at 10% 10%, #ffd8ee 0%, transparent 25%),
+        radial-gradient(circle at 90% 15%, #ddd3ff 0%, transparent 25%),
+        radial-gradient(circle at 50% 90%, #dff7ff 0%, transparent 25%),
+        linear-gradient(135deg, #fff8fc, #f5f1ff);
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: relative;
+    z-index: 10;
+
+    width: 100%;
+    padding: 25px 7%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: "Pacifico", cursive;
+    font-size: 30px;
+    color: #b45d99;
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #765f7d;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d26da9;
+    transform: translateY(-2px);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 850px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 70px 20px 100px;
+}
+
+.badge {
+    padding: 11px 22px;
+
+    border-radius: 50px;
+
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+
+    color: #a05d91;
+
+    box-shadow: 0 12px 35px rgba(110,70,130,0.10);
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.hero h1 {
+    margin-top: 28px;
+
+    font-size: clamp(48px, 8vw, 82px);
+    line-height: 1.05;
+
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #d46da9, #9877d4);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero > p {
+    margin-top: 22px;
+
+    color: #827286;
+    font-size: 18px;
+}
+
+.hero h3 {
+    margin-top: 55px;
+    margin-bottom: 25px;
+
+    font-size: 21px;
+}
+
+/* ================= CARDS ================= */
+
+.spaces {
+    width: 100%;
+    max-width: 900px;
+
+    display: flex;
+    gap: 30px;
+}
+
+.home-card {
+    position: relative;
+
+    flex: 1;
+    min-height: 350px;
+
+    padding: 45px 30px;
+
+    border-radius: 38px;
+
+    text-decoration: none;
+
+    overflow: hidden;
+
+    transition: 0.4s ease;
+}
+
+.home-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    top: -80px;
+    right: -50px;
+
+    opacity: 0.5;
+}
+
+.home-card:hover {
+    transform: translateY(-12px) scale(1.025);
+}
+
+/* Girls */
+
+.girls-card {
+    color: #754b68;
+
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.8), rgba(255,232,246,0.9));
+
+    border: 1px solid rgba(255,255,255,0.9);
+
+    box-shadow: 0 25px 60px rgba(202,112,172,0.20);
+}
+
+.girls-card::before {
+    background: #ffc5e4;
+}
+
+.girls-card:hover {
+    box-shadow: 0 35px 75px rgba(202,112,172,0.30);
+}
+
+/* Boys */
+
+.boys-card {
+    color: #eeeeff;
+
+    background:
+        radial-gradient(circle at 80% 15%, #4a466d, transparent 30%),
+        linear-gradient(145deg, #12121f, #29263e);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow: 0 25px 60px rgba(20,18,45,0.35);
+}
+
+.boys-card::before {
+    background: #5b527e;
+}
+
+.boys-card:hover {
+    box-shadow: 0 35px 80px rgba(20,18,45,0.50);
+}
+
+.big-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 95px;
+    height: 95px;
+
+    margin: 0 auto 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 30px;
+
+    font-size: 48px;
+
+    background: rgba(255,255,255,0.75);
+
+    box-shadow: 0 15px 35px rgba(60,40,80,0.10);
+}
+
+.boys-card .big-icon {
+    background: rgba(255,255,255,0.08);
+}
+
+.home-card h2 {
+    position: relative;
+    z-index: 2;
+
+    font-size: 29px;
+    margin-bottom: 13px;
+}
+
+.home-card p {
+    position: relative;
+    z-index: 2;
+
+    line-height: 1.7;
+    opacity: 0.82;
+}
+
+.home-card span {
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+
+    margin-top: 28px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.home-card:hover span {
+    transform: translateX(8px);
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background: rgba(255,255,255,0.45);
+    backdrop-filter: blur(15px);
+}
+
+.about h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 600px;
+    margin: auto;
+
+    color: #817383;
+    line-height: 1.8;
+}
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #927f91;
+    font-size: 13px;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 45px;
+    }
+
+    .hero h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .spaces {
+        flex-direction: column;
+        max-width: 430px;
+    }
+
+    .home-card {
+        min-height: 320px;
+    }
+}
+/* =========================================================
+   ✨ HOMEPAGE — STATS & ACHIEVEMENTS DESIGN
+   Add this at the END of style.css
+========================================================= */
+
+
+/* =========================
+   STATS CONTAINER
+========================= */
+
+.stats-section {
+    width: 92%;
+    max-width: 1000px;
+
+    margin: 60px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+/* =========================
+   STAT CARD
+========================= */
+
+.stat-card {
+    position: relative;
+
+    padding: 25px 20px;
+
+    text-align: center;
+
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 12px 35px rgba(70, 40, 90, 0.08);
+
+    overflow: hidden;
+
+    transition: 0.3s ease;
+}
+
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 100, 170, 0.12);
+
+    top: -45px;
+    right: -35px;
+}
+
+
+.stat-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 45px rgba(70, 40, 90, 0.14);
+}
+
+
+/* ICON */
+
+.stat-card span {
+    display: block;
+
+    font-size: 2rem;
+
+    margin-bottom: 8px;
+}
+
+
+/* NUMBER */
+
+.stat-card strong {
+    display: block;
+
+    font-size: 2rem;
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4f9a,
+            #806cff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
+/* LABEL */
+
+.stat-card small {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #817785;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievements-section {
+    width: 92%;
+    max-width: 1000px;
+
+    margin: 65px auto;
+
+    padding: 32px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,.55);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 15px 45px rgba(70,40,90,.08);
+}
+
+
+/* TITLE */
+
+.achievements-section h2 {
+    text-align: center;
+
+    margin-bottom: 8px;
+
+    font-size: 1.8rem;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4f9a,
+            #806cff
+        );
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+}
+
+
+.achievements-section > p {
+    text-align: center;
+
+    color: #807681;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   ACHIEVEMENT GRID
+========================= */
+
+.achievements {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================
+   ACHIEVEMENT CARD
+========================= */
+
+.achievement {
+    position: relative;
+
+    padding: 22px 15px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.85),
+            rgba(255,240,248,.7)
+        );
+
+    border: 1px solid rgba(255,255,255,.9);
+
+    transition: .3s ease;
+
+    overflow: hidden;
+}
+
+
+.achievement:hover {
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 15px 35px rgba(255,80,160,.12);
+}
+
+
+/* ACHIEVEMENT ICON */
+
+.achievement-icon {
+    width: 58px;
+    height: 58px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    font-size: 1.8rem;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe1ef,
+            #eee7ff
+        );
+
+    box-shadow:
+        0 8px 20px rgba(120,80,150,.08);
+}
+
+
+/* ACHIEVEMENT TITLE */
+
+.achievement h3 {
+    font-size: 1rem;
+
+    color: #3d3542;
+
+    margin-bottom: 5px;
+}
+
+
+/* DESCRIPTION */
+
+.achievement p {
+    font-size: .82rem;
+
+    line-height: 1.5;
+
+    color: #817783;
+}
+
+
+/* =========================
+   LOCKED ACHIEVEMENT
+========================= */
+
+.achievement.locked {
+    opacity: .55;
+
+    filter: grayscale(.35);
+}
+
+
+.achievement.locked .achievement-icon {
+    background: #eeeeee;
+}
+
+
+/* =========================
+   UNLOCKED
+========================= */
+
+.achievement.unlocked {
+    background:
+        linear-gradient(
+            145deg,
+            #fff5fa,
+            #f4f1ff
+        );
+}
+
+
+.achievement.unlocked::after {
+    content: "✓";
+
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #ff72ad;
+
+    color: white;
+
+    font-size: .75rem;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-box {
+    margin-top: 25px;
+}
+
+
+.progress-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    font-size: .82rem;
+
+    color: #746a78;
+}
+
+
+.progress-bar {
+    width: 100%;
+
+    height: 9px;
+
+    background: #eee9f0;
+
+    border-radius: 50px;
+
+    overflow: hidden;
+}
+
+
+.progress-fill {
+    height: 100%;
+
+    width: 65%;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff66a8,
+            #8874ff
+        );
+
+    transition: width .5s ease;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    .stats-section {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        margin-top: 45px;
+    }
+
+
+    .stat-card {
+        padding: 20px;
+    }
+
+
+    .achievements-section {
+        padding: 22px 15px;
+    }
+
+
+    .achievements {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 430px) {
+
+    .achievements {
+        grid-template-columns: 1fr;
+    }
+
+}
